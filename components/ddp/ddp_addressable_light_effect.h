@@ -11,7 +11,11 @@ namespace ddp {
 
 class DDPAddressableLightEffect : public DDPLightEffectBase, public light::AddressableLightEffect {
  public:
+#if ESPHOME_VERSION_CODE >= VERSION_CODE(2025, 11, 0)
+  DDPAddressableLightEffect(const char *name);
+#else
   DDPAddressableLightEffect(const std::string &name);
+#endif
 
   const std::string &get_name() override;
 
