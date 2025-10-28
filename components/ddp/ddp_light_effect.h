@@ -12,7 +12,11 @@ namespace ddp {
 
 class DDPLightEffect : public DDPLightEffectBase, public light::LightEffect {
  public:
+#if ESPHOME_VERSION_CODE >= VERSION_CODE(2025, 11, 0)
+  DDPLightEffect(const char *name);
+#else
   DDPLightEffect(const std::string &name);
+#endif
 
   const std::string &get_name() override;
 
