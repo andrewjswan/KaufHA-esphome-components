@@ -9,7 +9,11 @@ namespace ddp {
 
 static const char *const TAG = "ddp_light_effect";
 
+#if ESPHOME_VERSION_CODE >= VERSION_CODE(2025, 11, 0)
+DDPLightEffect::DDPLightEffect((const char *name) : LightEffect(name) {}
+#else
 DDPLightEffect::DDPLightEffect(const std::string &name) : LightEffect(name) {}
+#endif
 
 const std::string &DDPLightEffect::get_name() { return LightEffect::get_name(); }
 
